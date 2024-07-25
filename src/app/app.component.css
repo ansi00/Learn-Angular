@@ -1,0 +1,42 @@
+.active{
+    background-color: forestgreen;
+   
+}
+
+.no-active{
+    background-color: firebrick;
+    
+}
+
+.active-border{
+    border: 5px solid yellow;
+}
+
+.no-active-border{
+    border: 5px solid blue;
+}
+
+.apple{
+    background-color: red;
+    border : 3px solid gray
+}
+
+.orange{
+    background-color: orange;
+    border : 3px solid gray;
+}
+
+#names{
+    border-radius: 3rem;
+    background-color: chartreuse;
+}
+
+.login{
+    color: rgb(14, 227, 156);
+    text-transform: uppercase;
+}
+
+.logout{
+    color: rgb(186, 71, 4);
+    text-transform: lowercase;
+}
