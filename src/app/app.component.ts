@@ -1,18 +1,19 @@
-import { Component, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ViewContainerRef} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {AppNavbar} from './navbar/navbar.component'
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault,NgClass } from '@angular/common';
+import { NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault,NgClass, NgComponentOutlet } from '@angular/common';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CardComponent } from './card/card.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar,HeaderComponent,PostsListComponent,CardComponent, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase,NgClass, NgSwitchDefault, NgStyle],
+  imports: [RouterOutlet, AppNavbar,HeaderComponent,PostsListComponent,CardComponent,ProfileComponent,NgComponentOutlet, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase,NgClass, NgSwitchDefault, NgStyle],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -106,8 +107,6 @@ export class AppComponent implements AfterViewInit {
 
 // Data from child to parent component
 
-
-
 @ViewChild(PostsListComponent) childMessage : any;
 message: string = '';
 messageFromParent : string = '';
@@ -122,4 +121,18 @@ ngAfterViewInit(): void {
 receiveMessage(message:string){
 this.messageFromParent = message;
 }
+
+constructor(private viewContainer : ViewContainerRef){
+
+}
+
+loadComponent(){
+  this.viewContainer.createComponent(PostsListComponent)
+}
+
+removeComponent(){
+  this.viewContainer.remove();
+}
+
+username : string = "JohnDoe"
 }

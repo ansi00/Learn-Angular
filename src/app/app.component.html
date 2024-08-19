@@ -215,9 +215,25 @@
 <h1>{{messageFromParent}}</h1> -->
 
 
-<app-card>
+<!-- <app-card>
     <h2>John Doe</h2>
     <p>15/8/24</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nobis possimus, temporibus </p>
-    </app-card>
-    <app-posts-list></app-posts-list>
+    </app-card> -->
+    <!-- <app-posts-list></app-posts-list> -->
+<!-- 
+    <div *ngComponentOutlet = "loadComponent()"></div> -->
+
+
+    <!-- <button (click)="loadComponent()">Create Component</button> -->
+     
+    <button (click)="removeComponent()">Remove Component</button> 
+
+
+    <!-- LifeCycle Hooks in Angular -->
+
+    <!-- <app-profile [pUsername]="username"></app-profile> -->
+
+    <app-profile>
+        <p>Content projected from parent component</p>
+    </app-profile>
