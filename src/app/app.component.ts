@@ -3,17 +3,19 @@ import { RouterOutlet } from '@angular/router';
 import {AppNavbar} from './navbar/navbar.component'
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault,NgClass, NgComponentOutlet } from '@angular/common';
+import { NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault,NgClass, NgComponentOutlet, UpperCasePipe,LowerCasePipe, TitleCasePipe, DecimalPipe } from '@angular/common';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CardComponent } from './card/card.component';
 import { ProfileComponent } from './profile/profile.component';
 
 
 
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar,HeaderComponent,PostsListComponent,CardComponent,ProfileComponent,NgComponentOutlet, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase,NgClass, NgSwitchDefault, NgStyle],
+  imports: [RouterOutlet, AppNavbar,HeaderComponent,DecimalPipe,TitleCasePipe,LowerCasePipe,PostsListComponent,UpperCasePipe,CardComponent,ProfileComponent,NgComponentOutlet, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase,NgClass, NgSwitchDefault, NgStyle],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -135,4 +137,9 @@ removeComponent(){
 }
 
 username : string = "JohnDoe"
+
+
+// pipes in angular
+
+title : string = 'Angular pipes';
 }

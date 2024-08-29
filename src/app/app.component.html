@@ -227,13 +227,25 @@
 
     <!-- <button (click)="loadComponent()">Create Component</button> -->
      
-    <button (click)="removeComponent()">Remove Component</button> 
+    <!-- <button (click)="removeComponent()">Remove Component</button>  -->
 
 
     <!-- LifeCycle Hooks in Angular -->
 
     <!-- <app-profile [pUsername]="username"></app-profile> -->
 
-    <app-profile>
+    <!-- <app-profile>
         <p>Content projected from parent component</p>
-    </app-profile>
+    </app-profile> -->
+
+<!-- Pipes in Angular -->
+
+<!-- String Pipes -->
+
+    <h1>{{title | uppercase}}</h1> 
+    <h1>{{title | lowercase}}</h1> 
+    <h1>{{title | titlecase}}</h1>
+
+    <!-- Number Pipes -->
+
+    <h1>{{123456.789 | number}}</h1>
