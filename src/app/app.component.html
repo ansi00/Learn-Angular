@@ -249,3 +249,21 @@
     <!-- Number Pipes -->
 
     <h1>{{123456.789 | number}}</h1>
+
+    <!-- percentage pipe -->
+
+    <h1>{{0.7 | percent}}</h1>
+
+    <!-- Currency Pipe -->
+    <h1>{{1000 | currency : 'GBP' : 'code'}}</h1>
+
+<!-- Date and Time Pipes -->
+
+<h1>{{today | date : 'short'}}</h1>
+<h1>{{today | date : 'medium'}}</h1>
+<h1>{{today | date : 'long'}}</h1>
+<h1>{{today | date : 'full'}}</h1>
+
+<h1>{{today | date : 'dd-MM-yyyy'}}</h1>
+
+<h1>{{today | date : 'HH:mm:ss a z'}}</h1>
