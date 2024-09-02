@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {AppNavbar} from './navbar/navbar.component'
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault,NgClass, NgComponentOutlet, UpperCasePipe,LowerCasePipe, TitleCasePipe, DecimalPipe, PercentPipe, CurrencyPipe, DatePipe } from '@angular/common';
+import { NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault,NgClass, NgComponentOutlet, UpperCasePipe,LowerCasePipe, TitleCasePipe, DecimalPipe, PercentPipe, CurrencyPipe, DatePipe, JsonPipe, SlicePipe } from '@angular/common';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CardComponent } from './card/card.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -15,7 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar,HeaderComponent,DatePipe,CurrencyPipe,PercentPipe,DecimalPipe,TitleCasePipe,LowerCasePipe,PostsListComponent,UpperCasePipe,CardComponent,ProfileComponent,NgComponentOutlet, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase,NgClass, NgSwitchDefault, NgStyle],
+  imports: [RouterOutlet, AppNavbar,HeaderComponent,DatePipe,SlicePipe,JsonPipe,CurrencyPipe,PercentPipe,DecimalPipe,TitleCasePipe,LowerCasePipe,PostsListComponent,UpperCasePipe,CardComponent,ProfileComponent,NgComponentOutlet, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase,NgClass, NgSwitchDefault, NgStyle],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -144,4 +144,11 @@ username : string = "JohnDoe"
 title : string = 'Angular pipes';
 
 today = new Date();
+
+
+user : object = {
+ id : 1 ,
+  name : 'Joe Doe',
+email : 'JoeDoe@gmail.com'
+}
 }
