@@ -281,4 +281,24 @@
 
 <!-- Services in Angular -->
 
-<h1>{{userService.users| json }}</h1>
+<!-- <h1>{{userService.users| json }}</h1> -->
+
+<!-- Dependency Injection -->
+
+<app-posts-list></app-posts-list>
+
+<!-- Template Driven Forms -->
+
+
+<div class="form-center">
+    <h2>User Form</h2>
+    <form #f="ngForm" (submit)="formSubmit(f)">
+<input type="text" placeholder="name" name="name" ngModel>
+<br><br>
+<input type="text" placeholder="email" name="email" ngModel>
+<br><br>
+<input type="text" placeholder="address" name="address" ngModel>
+<br><br>
+<button >Submit</button>
+    </form>
+</div>

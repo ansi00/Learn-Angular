@@ -16,7 +16,7 @@ import { UserService } from './services/user.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar,HeaderComponent,DatePipe,SlicePipe,JsonPipe,CurrencyPipe,PercentPipe,DecimalPipe,TitleCasePipe,LowerCasePipe,PostsListComponent,UpperCasePipe,CardComponent,ProfileComponent,NgComponentOutlet, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase,NgClass, NgSwitchDefault, NgStyle],
+  imports: [RouterOutlet, AppNavbar,HeaderComponent,PostsListComponent,DatePipe,SlicePipe,JsonPipe,CurrencyPipe,PercentPipe,DecimalPipe,TitleCasePipe,LowerCasePipe,PostsListComponent,UpperCasePipe,CardComponent,ProfileComponent,NgComponentOutlet, FormsModule, NgIf, NgFor, NgSwitch, NgSwitchCase,NgClass, NgSwitchDefault, NgStyle],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -148,15 +148,18 @@ export class AppComponent  {
 
 userService : any ;
 
-constructor() {
- this.userService = new UserService();
- console.log(this.userService);
+constructor(private userServiceDI : UserService) {
+ this.userService =  userServiceDI;
+ 
  
 }
 
 
+// template driven forms
 
+formSubmit(f:any){
+console.log(f.value);
 
-
+}
 
 }

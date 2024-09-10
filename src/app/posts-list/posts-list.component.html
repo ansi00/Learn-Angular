@@ -9,4 +9,17 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur eum neque, illolup</p>
 </app-card> -->
 
-<h1>PostList Component</h1>
+<!-- <h1>PostList Component</h1> -->
+
+
+
+<!-- Dpendency Injection -->
+<!-- <h1>{{userService.users[0] | json}}</h1> -->
+
+<ul>
+    @for (  post of posts; track post) {
+    <li>{{post.title | json}}</li>
+    }
+</ul>
+
+<button (click)="addPost()">Add</button>

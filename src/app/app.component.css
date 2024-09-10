@@ -40,3 +40,8 @@
     color: rgb(186, 71, 4);
     text-transform: lowercase;
 }
+
+.form-center{
+    margin: 0 auto;
+    width: 250px;
+}
