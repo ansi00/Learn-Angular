@@ -162,4 +162,9 @@ console.log(f.value);
 
 }
 
+getValue(fullName :any){
+console.log(fullName);
+
+}
+
 }

@@ -285,7 +285,7 @@
 
 <!-- Dependency Injection -->
 
-<app-posts-list></app-posts-list>
+<!-- <app-posts-list></app-posts-list> -->
 
 <!-- Template Driven Forms -->
 
@@ -293,8 +293,19 @@
 <div class="form-center">
     <h2>User Form</h2>
     <form #f="ngForm" (submit)="formSubmit(f)">
-<input type="text" placeholder="name" name="name" ngModel>
-<br><br>
+<input [class.ng-invalid]="fullName.invalid && fullName.touched" type="text" placeholder="name" name="fullName" ngModel #fullName="ngModel" (change)="getValue(fullName)" required minlength="3">
+<div class="alert">
+    @if (fullName.invalid && fullName.touched) {
+        @if (fullName.hasError("required")) {
+            <p>FullName is required</p>
+        }
+        @if (fullName.hasError("minlength")) {
+            <p>Name should be atleast 3 characters long</p>
+        }
+   
+    }
+</div>
+<br>
 <input type="text" placeholder="email" name="email" ngModel>
 <br><br>
 <input type="text" placeholder="address" name="address" ngModel>
