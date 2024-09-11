@@ -49,17 +49,14 @@
 
 <!-- itexpert068@gmail.com  -->
 
-
 <!-- Old way -->
 <!-- <h2 *ngIf="isLoggedIn">{{userName}}</h2>
 <h4 *ngIf="!isLoggedIn">User not logged in</h4> -->
-
 
 <!-- New way -->
 <!-- @if(isLoggedIn){
     <h2>{{userName}}</h2>
 }@else {<h4>User logged out(using else syntax)</h4>} -->
-
 
 <!-- if directives with numbers -->
 
@@ -68,7 +65,6 @@
 }@else{
     <h1>Exceeded Login Attempts!!</h1>
 } -->
-
 
 <!-- if directive with string value -->
 
@@ -79,7 +75,6 @@
 }@else{
     <h1>You are not authorized</h1>
 } -->
-
 
 <!-- ng-template-exapmle-->
 
@@ -112,7 +107,6 @@
   <option *ngFor="let user of users; track user " [value]="user">{{ user }}</option>
 </select> -->
 
-
 <!-- own approach -->
 <!-- <p>using new appraoch</p>
 <label for="names">Select name</label> <br>
@@ -142,8 +136,7 @@
 
 <!-- Change Detection -->
 
-
- <!--@if(usersObj.length == 0){
+<!--@if(usersObj.length == 0){
      <div>
         <p>No User to display</p>
     </div>
@@ -183,7 +176,6 @@
 <!-- Style Binding Approach -->
 <!-- <h1 [style.color]="isLoggedIn ? 'green' : 'red'" [style.textTransform]="isLoggedIn ? 'uppercase' : 'lowercase'">Welcome Admin</h1> -->
 
-
 <!-- NgStyle Approach -->
 <!-- <h1 [ngStyle] = "{
     'color' : isLoggedIn ? 'Blue' : 'magenta',
@@ -194,15 +186,12 @@
 
 <!-- <h1 [class.login]="isLoggedIn" [class.logout]="!isLoggedIn">Class Binding</h1> -->
 
-
 <!-- NgClass Approach -->
 
 <!-- <h1 [ngClass] = "{
     'login' : isLoggedIn,
     'logout': !isLoggedIn
 }">Ng Class Approach</h1> -->
-
-
 
 <!-- Component and their Relationships -->
 
@@ -214,27 +203,24 @@
 
 <h1>{{messageFromParent}}</h1> -->
 
-
 <!-- <app-card>
     <h2>John Doe</h2>
     <p>15/8/24</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nobis possimus, temporibus </p>
     </app-card> -->
-    <!-- <app-posts-list></app-posts-list> -->
+<!-- <app-posts-list></app-posts-list> -->
 <!-- 
     <div *ngComponentOutlet = "loadComponent()"></div> -->
 
+<!-- <button (click)="loadComponent()">Create Component</button> -->
 
-    <!-- <button (click)="loadComponent()">Create Component</button> -->
-     
-    <!-- <button (click)="removeComponent()">Remove Component</button>  -->
+<!-- <button (click)="removeComponent()">Remove Component</button>  -->
 
+<!-- LifeCycle Hooks in Angular -->
 
-    <!-- LifeCycle Hooks in Angular -->
+<!-- <app-profile [pUsername]="username"></app-profile> -->
 
-    <!-- <app-profile [pUsername]="username"></app-profile> -->
-
-    <!-- <app-profile>
+<!-- <app-profile>
         <p>Content projected from parent component</p>
     </app-profile> -->
 
@@ -242,20 +228,20 @@
 
 <!-- String Pipes -->
 
-    <!-- <h1>{{title | uppercase}}</h1> 
+<!-- <h1>{{title | uppercase}}</h1> 
     <h1>{{title | lowercase}}</h1> 
     <h1>{{title | titlecase}}</h1> -->
 
-    <!-- Number Pipes -->
+<!-- Number Pipes -->
 
-    <!-- <h1>{{123456.789 | number}}</h1> -->
+<!-- <h1>{{123456.789 | number}}</h1> -->
 
-    <!-- percentage pipe -->
+<!-- percentage pipe -->
 
-    <!-- <h1>{{0.7 | percent}}</h1> -->
+<!-- <h1>{{0.7 | percent}}</h1> -->
 
-    <!-- Currency Pipe -->
-    <!-- <h1>{{1000 | currency : 'GBP' : 'code'}}</h1> -->
+<!-- Currency Pipe -->
+<!-- <h1>{{1000 | currency : 'GBP' : 'code'}}</h1> -->
 
 <!-- Date and Time Pipes -->
 
@@ -289,27 +275,60 @@
 
 <!-- Template Driven Forms -->
 
-
 <div class="form-center">
-    <h2>User Form</h2>
-    <form #f="ngForm" (submit)="formSubmit(f)">
-<input [class.ng-invalid]="fullName.invalid && fullName.touched" type="text" placeholder="name" name="fullName" ngModel #fullName="ngModel" (change)="getValue(fullName)" required minlength="3">
-<div class="alert">
-    @if (fullName.invalid && fullName.touched) {
-        @if (fullName.hasError("required")) {
-            <p>FullName is required</p>
-        }
-        @if (fullName.hasError("minlength")) {
-            <p>Name should be atleast 3 characters long</p>
-        }
-   
-    }
-</div>
-<br>
-<input type="text" placeholder="email" name="email" ngModel>
-<br><br>
-<input type="text" placeholder="address" name="address" ngModel>
-<br><br>
-<button >Submit</button>
-    </form>
+  <h2>User Form</h2>
+  <form #f="ngForm" (ngSubmit)="formSubmit(f)">
+    <input
+      [class.ng-invalid]="fullName.invalid && fullName.touched"
+      type="text"
+      placeholder="name"
+      name="fullName"
+      ngModel
+      #fullName="ngModel"
+      (change)="getValue(fullName)"
+      required
+      minlength="3"
+      maxlength="10"
+    />
+    <div class="alert">
+      @if (fullName.invalid && fullName.touched) { @if
+      (fullName.hasError("required")) {
+      <p>FullName is required</p>
+      } @if (fullName.hasError("minlength")) {
+      <p>Name should be atleast 3 characters long</p>
+      } @if (fullName.hasError("maxLength")) {
+      <p>Name cannot be more than 10 characters</p>
+      } }
+    </div>
+    <br />
+    <input
+      [class.ng-invalid]="email.invalid && email.touched"
+      type="text"
+      placeholder="email"
+      name="email"
+      ngModel
+      #email="ngModel"
+      required
+      pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+    />
+    <div class="alert">
+      @if (email.invalid && email.touched) { @if (email.hasError("required")) {
+      <p>Email is required</p>
+      } @if (email.hasError("pattern")) {
+      <p>Invalid Email Address</p>
+      } @if (fullName.hasError("maxLength")) {
+      <p>Name cannot be more than 10 characters</p>
+      } }
+    </div>
+    <br />
+    <textarea [class.ng-invalid]="address.invalid && address.touched" placeholder="Address" name="address" ngModel #address="ngModel" required ></textarea>
+    <div class="alert">
+        @if (address.invalid && address.touched) { @if
+        (address.hasError("required")) {
+        <p>Address is required</p>
+        }  }
+      </div>
+    <br>
+    <button [disabled]="f.invalid">Submit</button>
+  </form>
 </div>
